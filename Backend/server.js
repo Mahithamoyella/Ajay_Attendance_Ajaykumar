@@ -6,7 +6,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-const port = process.env.PORT || 3427;
+const port = process.env.PORT || 3099;
 
 // Logger setup
 const logger = winston.createLogger({
@@ -26,7 +26,7 @@ const poolConfig = {
     user: process.env.DB_USER || 'postgres',
     host: process.env.DB_HOST || 'postgres',
     database: process.env.DB_NAME || 'attendance_db',
-    password: process.env.DB_PASSWORD || 'admin123',
+    password: process.env.DB_PASSWORD || 'admin834',
     port: process.env.DB_PORT || 5432,
     retry: {
         max: process.env.DB_RETRIES || 5,
@@ -62,9 +62,9 @@ async function checkDatabaseConnection(retries = 5, delay = 3000) {
 
 // CORS Configuration
 const allowedOrigins = [
-    'http://44.223.23.145:8051', // Frontend
-    'http://44.223.23.145:8052', // HR Page
-    'http://44.223.23.145:3427', // Backend
+    'http://3.83.1.75:8158', // Frontend
+    'http://3.83.1.75:8159', // HR Page
+    'http://3.83.1.75:3099', // Backend
     'http://localhost:3019',
     'http://127.0.0.1:5501',
     'http://127.0.0.1:5503'
@@ -386,9 +386,9 @@ async function startServer() {
         
         app.listen(port, '0.0.0.0', () => {
             logger.info(`Server running on port ${port}`);
-            console.log(`Health check: http://44.223.23.145:${port}/health`);
-            console.log(`HR Dashboard: http://44.223.23.145:${port}/attendance.html`);
-            console.log(`Employee Attendance: http://44.223.23.145:${port}/employee_attendance.html`);
+            console.log(`Health check: http://3.83.1.75:${port}/health`);
+            console.log(`HR Dashboard: http://3.83.1.75:${port}/attendance.html`);
+            console.log(`Employee Attendance: http://3.83.1.75:${port}/employee_attendance.html`);
         });
     } catch (err) {
         logger.error('Server startup failed', { error: err.message });

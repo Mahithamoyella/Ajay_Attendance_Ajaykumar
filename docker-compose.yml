@@ -6,7 +6,7 @@ services:
     ports:
       - "3099:3099"
     environment:
-      - PORT=3427
+      - PORT=3099
       - DB_USER=postgres
       - DB_HOST=postgres
       - DB_NAME=attendance_db
